@@ -1,0 +1,40 @@
+{
+  "name": "project-4",
+  "version": "1.0.0",
+  "description": "An app that lets UWF students order food on campus.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest src",
+    "start": "node server.js",
+    "lint": "eslint ."
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.js"
+    ]
+  },
+  "author": "E.L. Fridge, Chris Roemer, and CEN3031",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "axios": "^1.7.8",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
+    "hbs": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.11.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.5",
+    "prisma": "^5.22.0",
+    "supertest": "^7.0.0"
+  }
+}
