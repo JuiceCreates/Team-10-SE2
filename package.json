@@ -1,7 +1,7 @@
 {
   "name": "project-4",
   "version": "1.0.0",
-  "description": "An app that lets UWF students order food on campus.",
+  "description": "An application that allows user to create quizes/studyguides.",
   "main": "server.js",
   "scripts": {
     "test": "jest src",
@@ -13,7 +13,7 @@
       "<rootDir>/src/**/*.spec.js"
     ]
   },
-  "author": "E.L. Fridge, Chris Roemer, and CEN3031",
+  "author": "Alexander Nunn, Corey Williams, Zachary Wilson, Micheal Ramirez",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.22.0",
