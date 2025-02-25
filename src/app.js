@@ -13,6 +13,7 @@ app.use(session({
     cookie: { secure: false },
 }));
 
+app.use(express.static('public'));
 
 // Set up Handlebars middleware
 const HandlebarsMiddleware = require('./middleware/handlebars.middleware'); 
