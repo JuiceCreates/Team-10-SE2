@@ -13,7 +13,7 @@ app.use(session({
     cookie: { secure: false },
 }));
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Set up Handlebars middleware
 const HandlebarsMiddleware = require('./middleware/handlebars.middleware'); 
