@@ -1,0 +1,35 @@
+{{! this code was based of a pervious login view by Alex}}
+
+{{#if errorMessafe}}
+    <div class="alert alert-danger" role = "alert">
+        {{errorMessage}}
+    </div>
+{{/if}}
+
+{{#if successMessage}}
+    <div class="alert alert-success" role ="alert">
+    {{successMessage}}
+{{/if}}
+
+<div class="container d-flex justify-content-center" style="min-height: 100vh; align-items: flex-start; padding-top: 40px;">
+    <div class="card" id = "loginCard" style="width: 100%; max-width: 1000px;">
+        <div class="card-body">
+            <h1 class="card-title text-center" style="font-size: 4rem;">Welcome, please login</h1>
+            <form method = "POST" action="/login">
+                <div class = "form-group">
+                    <label for="email" style="font-size: 2.5rem;">Email</label>
+                    <input type = "email" class="form-control" id="email" name ="email" placeholder="Enter email" required style="font-size: 2.5rem; padding: 20px;">
+                </div>
+                <div class="form-group">
+                    <label for = "password" style="font-size: 2.5rem;">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required style="font-size: 2.5rem; padding: 20px;">
+                </div>
+                <button type="submit" class ="btn btn-primary btn-block" style="font-size: 2.5rem; padding: 20px;">Login</button>
+            </form>
+            <div class = "text-center mt-3">
+                <h2 style="font-size: 3rem;">Don't have a login? Sign up here</h2>
+                <a href="/register" class="btn btn-secondary" style="font-size: 2.5rem; padding: 20px;">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
