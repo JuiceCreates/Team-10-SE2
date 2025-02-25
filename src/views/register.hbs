@@ -1,0 +1,53 @@
+<div class="container d-flex flex-column align-items-center" style="min-height: 100vh; padding-top: 40px;">
+    <div class="row w-100" style="max-width: 1200px;">
+        
+        <!-- Left Section (Slogan and Image) -->
+        <div class="col-md-6 d-flex flex-column justify-content-start align-items-start" style="padding-left: 20px;">
+            <!-- Slogan Section (Upper Left) -->
+            <div class="text-left mt-4" style="margin-top: 0;">
+                <h2 style="font-size: 2rem; font-weight: bold; color: #333;">Kooz says "signing up is as easy as 1 2 Kooze"</h2>
+            </div>
+            <!-- Image -->
+            <img src="/img/Kooz.png" alt="Login Illustration" class="img-fluid" style="max-height: 500px;">
+        </div>
+
+        <!-- Right Section (Register Form) -->
+        <div class="col-md-6 d-flex flex-column justify-content-start align-items-start" style="padding-left: 20px;">
+            <h1 class="text-center" style="font-size: 3rem; margin-bottom: 40px;">Create an Account</h1>
+            <div class="card" id="registerCard" style="width: 100%; max-width: 5000px;">
+                <div class="card-body">
+                    <form method="POST" action="/register">
+                        <div class="form-group">
+                            <label for="email" style="font-size: 2rem;">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required style="font-size: 1.5rem; padding: 20px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="font-size: 2rem;">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required style="font-size: 1.5rem; padding: 20px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword" style="font-size: 2rem;">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required style="font-size: 1.5rem; padding: 20px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName" style="font-size: 2rem;">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" required style="font-size: 1.5rem; padding: 20px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" style="font-size: 2rem;">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name" required style="font-size: 1.5rem; padding: 20px;">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="font-size: 1.5rem; padding: 20px;">Register</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <h2 style="font-size: 1rem;">Already have an account? Login here</h2>
+                        <a href="/login" class="btn btn-link" style="font-size: 1rem; padding: 20px;">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
