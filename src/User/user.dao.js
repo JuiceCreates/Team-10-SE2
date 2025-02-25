@@ -1,5 +1,5 @@
 class UserDAO{
-    constructor(){
+    constructor(prisma){
         this.prisma = prisma;
     }
 
@@ -16,4 +16,4 @@ class UserDAO{
     }
 }
 
-module.exports.UserDAO;
+module.exports = UserDAO;
