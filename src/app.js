@@ -2,6 +2,8 @@
 const express = require('express');
 const session = require('express-session');
 const app = express(); 
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Set up session middleware
 app.use(session({
@@ -15,6 +17,9 @@ app.use(session({
 // Set up Handlebars middleware
 const HandlebarsMiddleware = require('./middleware/handlebars.middleware'); 
 HandlebarsMiddleware.setup(app);
+
+const loginController = require('./Login/login.controller');
+app.use(loginController);
 
 // Error handler
 app.use((err, req, res, next) => {
