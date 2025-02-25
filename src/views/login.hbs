@@ -1,40 +1,43 @@
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh; padding-top: 40px;">
-    <div class="row w-100" style="max-width: 1200px;">
-        
-        <!-- Left Section (Slogan and Image) -->
-        <div class="col-md-6 d-flex flex-column justify-content-start align-items-start" style="padding-left: 20px;">
-            <!-- Slogan Section (Upper Left) -->
-            <div class="text-left mt-4" style="margin-top: 0;">
-                <h2 style="font-size: 2rem; font-weight: bold; color: #333;">Kooz knows best, quiz like the rest</h2>
-            </div>
-            <!-- Image -->
-            <img src="/img/Kooz.png" alt="Login Illustration" class="img-fluid" style="max-height: 500px;">
+<div class="container-fluid min-vh-100">
+    <div class="row min-vh-100">
+        <!-- Left Section (70%) -->
+        <div class="col-8 d-flex flex-column justify-content-center align-items-center bg-light">
+            <h2 class="mb-4">Kooz knows best, quiz like the rest</h2>
+            <img src="/img/Kooz.png" alt="Login Illustration" class="img-fluid" style="max-height: 70vh;">
         </div>
 
-        <!-- Right Section (Login Form with Background Color) -->
-        <div class="col-md-6 d-flex justify-content-end" style="padding: 0; padding-left: 20px;">
-            <!-- Login Card -->
-            <div class="card" id="loginCard" style="width: 100%; max-width: 1000px; margin-top: 20px; padding: 30px;">
-                <div class="card-body">
-                    <h1 class="card-title text-right" style="font-size: 3.5rem; white-space: nowrap;">Welcome, please login</h1> 
+        <!-- Right Section (30%) -->
+        <div class="col-4 p-0">
+            <div class="card shadow-sm h-100 rounded-0">
+                <div class="card-body p-5">
+                    <h1 class="card-title text-center mb-5">Welcome, please login</h1>
                     <form method="POST" action="/login">
-                        <div class="form-group">
-                            <label for="email" style="font-size: 2rem;">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required style="font-size: 2rem; padding: 25px;">
+                        <div class="form-group mb-4">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" 
+                                   class="form-control form-control-lg" 
+                                   id="email" 
+                                   name="email" 
+                                   placeholder="Enter email" 
+                                   required>
                         </div>
-                        <div class="form-group">
-                            <label for="password" style="font-size: 2rem;">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required style="font-size: 2rem; padding: 25px;">
+                        <div class="form-group mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" 
+                                   class="form-control form-control-lg" 
+                                   id="password" 
+                                   name="password" 
+                                   placeholder="Enter password" 
+                                   required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block" style="font-size: 2rem; padding: 25px;">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-4">Login</button>
                     </form>
-                    <div class="text-center mt-3">
-                        <h2 style="font-size: 2rem;">Don't have a login? Sign up here</h2>
-                        <a href="/register" class="btn btn-secondary" style="font-size: 2rem; padding: 25px;">Sign Up</a>
+                    <div class="text-center">
+                        <p class="mb-3">Don't have a login?</p>
+                        <a href="/register" class="btn btn-secondary btn-lg">Sign Up</a>
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
