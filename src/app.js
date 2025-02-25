@@ -1,9 +1,13 @@
 
 const express = require('express');
 const session = require('express-session');
-const app = express(); 
+const bcrypt = require("bcrypt");
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
+
+const app = express(); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up session middleware
 app.use(session({
@@ -18,8 +22,24 @@ app.use(session({
 const HandlebarsMiddleware = require('./middleware/handlebars.middleware'); 
 HandlebarsMiddleware.setup(app);
 
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
+
+const UserDAO = require('./User/user.dao');
+
+
+const LoginService = require('./Login/login.service');
+const UserService = require('./User/user.service');
+
+const userDAO = new UserDAO(prisma);
+const loginService = new LoginService(userDAO);
+const userService = new UserService(userDAO, bcrypt);
+
 const loginController = require('./Login/login.controller');
-app.use(loginController);
+const UserController = require('./User/user.controller');
+
+app.use(UserController(userService));
+app.use(loginController(loginService));
 
 // Error handler
 app.use((err, req, res, next) => {
