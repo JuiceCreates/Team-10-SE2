@@ -1,53 +1,121 @@
-<div class="container d-flex flex-column align-items-center" style="min-height: 100vh; padding-top: 40px;">
-    <div class="row w-100" style="max-width: 1200px;">
-        
-        <!-- Left Section (Slogan and Image) -->
-        <div class="col-md-6 d-flex flex-column justify-content-start align-items-start" style="padding-left: 20px;">
-            <!-- Slogan Section (Upper Left) -->
-            <div class="text-left mt-4" style="margin-top: 0;">
-                <h2 style="font-size: 2rem; font-weight: bold; color: #333;">Kooz says "signing up is as easy as 1 2 Kooze"</h2>
+<div class = "container-fluid min-vh-100">
+    <div class ="row min-vh-100">
+        <div class="col-8 bg-register">
+            <div class="slogan-container">
+                <h2 class = "ps-4 slogan-text">Signing up is as Easy as 1,2,Kooze</h2>
+                <h2 class = "ps-5 slogan-text">-Kooze</h2>
             </div>
-            <!-- Image -->
-            <img src="/img/Kooz_signUp.png" alt="Login Illustration" class="img-fluid" style="max-height: 500px;">
+            <div class="kuizlet-text">
+                <h1 class="display-1">KOOZLET</h1>
+            </div>
+            <div class="d-flex justify-content-end align-items-end h-75 pe-0" style="margin-top: 16rem;">
+                <img src="/img/Kooz_SignUp.png" alt="Sign Illustration" class="img-fluid kooz-image-container">
+            </div>
+        
         </div>
 
-        <!-- Right Section (Register Form) -->
-        <div class="col-md-6 d-flex flex-column justify-content-start align-items-start" style="padding-left: 20px;">
-            <h1 class="text-center" style="font-size: 3rem; margin-bottom: 40px;">Create an Account</h1>
-            <div class="card" id="registerCard" style="width: 100%; max-width: 5000px;">
-                <div class="card-body">
-                    <form method="POST" action="/register">
-                        <div class="form-group">
-                            <label for="email" style="font-size: 2rem;">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required style="font-size: 1.5rem; padding: 20px;">
-                        </div>
-                        <div class="form-group">
-                            <label for="password" style="font-size: 2rem;">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required style="font-size: 1.5rem; padding: 20px;">
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword" style="font-size: 2rem;">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required style="font-size: 1.5rem; padding: 20px;">
-                        </div>
-                        <div class="form-group">
-                            <label for="firstName" style="font-size: 2rem;">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" required style="font-size: 1.5rem; padding: 20px;">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName" style="font-size: 2rem;">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name" required style="font-size: 1.5rem; padding: 20px;">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block" style="font-size: 1.5rem; padding: 20px;">Register</button>
-                    </form>
-                    <div class="text-center mt-3">
-                        <h2 style="font-size: 1rem;">Already have an account? Login here</h2>
-                        <a href="/login" class="btn" style="font-size: 1rem; padding: 20px;">Login</a>
+        <div class="col-4 p-0">
+            <div class = "card shadow-sm h-100 rounded-0">
+                <div class = "d-flex justify-content-start gap-4 ps-5">
+                    <button class ="tab-button">Sign Up</button>
+                    <button class = "tab-button">Log In</button>
+                </div>
+                <form method="POST" action="/register" style="margin-top: 4rem;" class="form-container">
+                    <div class="form-group mb-8 ps-5">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" required>
                     </div>
+                    <div class="form-group mb-4 ps-5">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Enter password" required>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="far fa-eye-slash" id="toggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4 ps-5">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control form-control-lg" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="far fa-eye-slash" id="toggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4 ps-5">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="Enter first name" required>
+                    </div>
+                    <div class="form-group mb-4 ps-5">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" placeholder="Enter last name" required>
+                    </div>
+                    <div class="ps-5">
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-4 py-3">Register</button>
+                    </div>
+                    <div class="ps-5 text-center">
+                        <p class="text-muted small">
+                            By clicking Register, you accept Koozlet's
+                            <a href="/terms" class="text-decoration-none">Terms of Service</a> and
+                            <a href="/privacy" class="text-decoration-none">Privacy Policy</a>
+                        </p>
+                    </div>
+                <div class = "text-center ps-5">
+                    <a href="/login" class ="btn btn-outline-secondary btn-lg w-100 mb-4"> Already have an account?
+                    Click here</a>
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
+
+<script>
+    const password = document.getElementById('password');
+    const icon = document.getElementById('toggleIcon');
+    password.type = 'password';
+    icon.className = 'far fa-eye-slash';
+
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        if (password.type === 'password') {
+            password.type = 'text';
+            icon.className = 'far fa-eye';
+        } else {
+            password.type = 'password';
+            icon.className = 'far fa-eye-slash';
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
