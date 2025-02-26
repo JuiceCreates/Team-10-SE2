@@ -17,8 +17,8 @@
         <div class="col-4 p-0">
             <div class = "card shadow-sm h-100 rounded-0">
                 <div class = "d-flex justify-content-start gap-4 ps-5">
-                    <button class ="tab-button">Sign Up</button>
-                    <button class = "tab-button">Log In</button>
+                    <button  class ="tab-button">Sign Up</button>
+                    <button  class = "tab-button">Log In</button>
                 </div>
                 <form method="POST" action="/register" style="margin-top: 4rem;" class="form-container">
                     <div class="form-group mb-8 ps-5">
@@ -34,13 +34,15 @@
                             </button>
                         </div>
                     </div>
-                    <div class="form-group mb-4 ps-5">
+                    <div class="form-group mb-5 ps-5">
                         <label for="confirmPassword" class="form-label">Confirm Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control form-control-lg" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                            <span id ="passwordError" class ="error"></span>
                             <button class="btn btn-outline-secondary" type="button" id="togglePassword">
                                 <i class="far fa-eye-slash" id="toggleIcon"></i>
                             </button>
+                
                         </div>
                     </div>
                     <div class="form-group mb-4 ps-5">
@@ -70,19 +72,40 @@
     </div>
 </div>
 
-<script>
-    const password = document.getElementById('password');
-    const icon = document.getElementById('toggleIcon');
-    password.type = 'password';
-    icon.className = 'far fa-eye-slash';
 
-    document.getElementById('togglePassword').addEventListener('click', function () {
-        if (password.type === 'password') {
-            password.type = 'text';
-            icon.className = 'far fa-eye';
+
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const passwordError = document.getElementById('passwordError');
+
+    confirmPasswordInput.addEventListener('input', function () {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            passwordError.textContent = 'Passwords do not match';
+            passwordError.classList.add('error');
         } else {
-            password.type = 'password';
-            icon.className = 'far fa-eye-slash';
+            passwordError.textContent = '';
+            passwordError.classList.remove('error');
+        }
+    });
+</script>
+
+<script>
+    const togglePasswordButton = document.getElementById('togglePassword');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const passwordField = document.getElementById('password');
+    const confirmPasswordField = document.getElementById('confirmPassword');
+
+    togglePasswordButton.addEventListener('click', function () {
+        if (passwordField.type === 'password' && confirmPasswordField.type === 'password') {
+            passwordField.type = 'text';
+            confirmPasswordField.type = 'text';
+            toggleIcon.className = 'far fa-eye';
+        } else {
+            passwordField.type = 'password';
+            confirmPasswordField.type = 'password';
+            toggleIcon.className = 'far fa-eye-slash';
         }
     });
 </script>

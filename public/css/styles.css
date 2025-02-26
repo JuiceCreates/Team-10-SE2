@@ -18,7 +18,11 @@
   overflow: hidden;
   position: relative;
 }
-
+.error{
+    color: red;
+    font-size: 0.875.rem;
+    bottom: 0;
+}
 
 /*Kooz Mascot image*/
 .kooz-image-container {
