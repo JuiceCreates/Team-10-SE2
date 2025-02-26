@@ -42,6 +42,10 @@ const loginController = require('./Login/login.controller');
 //app.use(UserController(userService));
 app.use(loginController(loginService));
 
+app.get('/' , (req, res) =>{
+    res.redirect('/login');
+});
+
 // Error handler
 app.use((err, req, res, next) => {
     console.error(err.stack);
