@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
-
+const path = require('path');
 const app = express(); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -30,16 +30,16 @@ const UserDAO = require('./User/user.dao');
 
 
 const LoginService = require('./Login/login.service');
-const UserService = require('./User/user.service');
+//const UserService = require('./User/user.service');
 
 const userDAO = new UserDAO(prisma);
 const loginService = new LoginService(userDAO);
-const userService = new UserService(userDAO, bcrypt);
+//const userService = new UserService(userDAO, bcrypt);
 
 const loginController = require('./Login/login.controller');
-const UserController = require('./User/user.controller');
+//const UserController = require('./User/user.controller');
 
-app.use(UserController(userService));
+//app.use(UserController(userService));
 app.use(loginController(loginService));
 
 // Error handler
