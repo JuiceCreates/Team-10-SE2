@@ -1,0 +1,79 @@
+/*Background for the login page*/
+.bg-login {
+    background-color: #0D3B66;
+    background-image: url('/img/Castle.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; 
+    position: relative; 
+}
+/*Kooz Mascot image*/
+.kooz-image-container {
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    max-height: 70vh;
+}
+/*Slogan container and text*/
+.slogan-container {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: rgba(33, 37, 41, 0.5);
+    border-radius: 100px;
+    margin-left: 9rem;
+}
+
+.slogan-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 0rem 1rem;
+}
+
+/*Kuizlet Logo name*/
+.kuizlet-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 3rem;
+    margin-left: 12rem;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+}
+
+/*Tab buttons above the Email and password text fields*/
+.tab-button {
+    background: none;
+    border: none;
+    color: #6c757d;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+}
+
+.tab-button:hover {
+    color: #0d6efd;
+}
+
+/*Password field*/
+.input-group .btn {
+    border-color: #ced4da;
+    background-color: white;
+}
+
+.input-group .btn:hover {
+    background-color: #f8f9fa;
+}
+
+.input-group .far {
+    color: #6c757d;
+}
