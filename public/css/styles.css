@@ -8,6 +8,22 @@
     overflow: hidden; 
     position: relative; 
 }
+/*Background for the register page */
+.bg-register{
+  background-color: #0D3B66;
+  background-image: url('/img/Castle.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+.error{
+    color: red;
+    font-size: 0.675.rem;
+    bottom: 0;
+}
+
 /*Kooz Mascot image*/
 .kooz-image-container {
     position: absolute;
