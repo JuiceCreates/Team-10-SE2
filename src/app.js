@@ -34,7 +34,7 @@ const LoginService = require('./Login/login.service');
 const UserService = require('./User/user.service');
 
 const userDAO = new UserDAO(prisma);
-const loginService = new LoginService(userDAO);
+const loginService = new LoginService(userDAO, bcrypt);
 const userService = new UserService(userDAO, bcrypt);
 
 const loginController = require('./Login/login.controller');
