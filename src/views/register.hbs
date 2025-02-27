@@ -38,11 +38,10 @@
                         <label for="confirmPassword" class="form-label">Confirm Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control form-control-lg" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
-                            <span id ="passwordError" class ="error"></span>
-                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                <i class="far fa-eye-slash" id="toggleIcon"></i>
+                            <button class="btn btn-outline-secondary" type="button" id="conTogglePassword">
+                                <i class="far fa-eye-slash" id="conToggleIcon"></i>
+                                <span id ="passwordError" class ="error"></span>
                             </button>
-                
                         </div>
                     </div>
                     <div class="form-group mb-4 ps-5">
@@ -95,17 +94,31 @@
     const togglePasswordButton = document.getElementById('togglePassword');
     const toggleIcon = document.getElementById('toggleIcon');
     const passwordField = document.getElementById('password');
-    const confirmPasswordField = document.getElementById('confirmPassword');
 
     togglePasswordButton.addEventListener('click', function () {
-        if (passwordField.type === 'password' && confirmPasswordField.type === 'password') {
+        if (passwordField.type === 'password') {
             passwordField.type = 'text';
-            confirmPasswordField.type = 'text';
             toggleIcon.className = 'far fa-eye';
         } else {
             passwordField.type = 'password';
-            confirmPasswordField.type = 'password';
             toggleIcon.className = 'far fa-eye-slash';
+        }
+    });
+</script>
+
+<script>
+    const togglePasswordConButton = document.getElementById('conTogglePassword');
+    const toggleConIcon = document.getElementById('conToggleIcon');
+    const conPasswordField = document.getElementById('confirmPassword');
+
+    togglePasswordConButton.addEventListener('click', function(){
+        if(conPasswordField.type === 'password'){
+            conPasswordField.type = 'text';
+            toggleConIcon.className = 'far fa-eye';    
+        }
+        else{
+            conPasswordField.type = 'password';
+            toggleConIcon.className = 'far fa-eye-slash';
         }
     });
 </script>
