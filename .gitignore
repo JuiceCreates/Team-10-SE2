@@ -6,6 +6,3 @@ client/
 *.db
 *.db-journal
 
-# avoid env files
-*.env
-.env
