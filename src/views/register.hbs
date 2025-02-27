@@ -1,9 +1,9 @@
-<div class = "container-fluid min-vh-100">
-    <div class ="row min-vh-100">
+<div class="container-fluid min-vh-100">
+    <div class="row min-vh-100">
         <div class="col-8 bg-register">
             <div class="slogan-container">
-                <h2 class = "ps-4 slogan-text">Signing up is as Easy as 1,2,Kooze</h2>
-                <h2 class = "ps-5 slogan-text">-Kooze</h2>
+                <h2 class="ps-4 slogan-text">Signing up is as Easy as 1,2,Kooze</h2>
+                <h2 class="ps-5 slogan-text">-Kooze</h2>
             </div>
             <div class="kuizlet-text">
                 <h1 class="display-1">KOOZLET</h1>
@@ -11,60 +11,69 @@
             <div class="d-flex justify-content-end align-items-end h-75 pe-0" style="margin-top: 16rem;">
                 <img src="/img/Kooz_SignUp.png" alt="Sign Illustration" class="img-fluid kooz-image-container">
             </div>
-        
+
         </div>
 
         <div class="col-4 p-0">
-            <div class = "card shadow-sm h-100 rounded-0">
-                <div class = "d-flex justify-content-start gap-4 ps-5">
-                    <button  class ="tab-button">Sign Up</button>
-                    <button  class = "tab-button">Log In</button>
-                </div>
-                <form method="POST" action="/register" style="margin-top: 4rem;" class="form-container">
-                    <div class="form-group mb-8 ps-5">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" required>
+            <div class="card shadow-sm h-100 rounded-0">
+                <div class="card-body p-5">
+                    <div class="d-flex justify-content-start gap-4 ps-5">
+                        <a href="/register" class="text-decoration-none"><button class="tab-button">Sign Up</button></a>
+                        <a href="/login" class="text-decoration-none"><button class="tab-button active">Log
+                                In</button></a>
                     </div>
-                    <div class="form-group mb-4 ps-5">
-                        <label for="password" class="form-label">Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Enter password" required>
-                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                <i class="far fa-eye-slash" id="toggleIcon"></i>
-                            </button>
+                    <form method="POST" action="/register" style="margin-top: 4rem;" class="form-container">
+                        <div class="form-group mb-8 ps-5">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                placeholder="Enter email" required>
                         </div>
-                    </div>
-                    <div class="form-group mb-5 ps-5">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control form-control-lg" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
-                            <button class="btn btn-outline-secondary" type="button" id="conTogglePassword">
-                                <i class="far fa-eye-slash" id="conToggleIcon"></i>
-                                <span id ="passwordError" class ="error"></span>
-                            </button>
+                        <div class="form-group mb-4 ps-5">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" id="password"
+                                    name="password" placeholder="Enter password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="far fa-eye-slash" id="toggleIcon"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group mb-4 ps-5">
-                        <label for="firstName" class="form-label">First name</label>
-                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="Enter first name" required>
-                    </div>
-                    <div class="form-group mb-4 ps-5">
-                        <label for="lastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" placeholder="Enter last name" required>
-                    </div>
-                    <div class="ps-5">
-                        <button type="submit" class="btn btn-primary btn-lg w-100 mb-4 py-3">Register</button>
-                    </div>
-                    <div class="ps-5 text-center">
-                        <p class="text-muted small">
-                            By clicking Register, you accept Koozlet's
-                            <a href="/terms" class="text-decoration-none">Terms of Service</a> and
-                            <a href="/privacy" class="text-decoration-none">Privacy Policy</a>
-                        </p>
-                    </div>
-                <div class = "text-center ps-5">
-                    <a href="/login" class ="btn btn-outline-secondary btn-lg w-100 mb-4"> Already have an account?
-                    Click here</a>
+                        <div class="form-group mb-5 ps-5">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" id="confirmPassword"
+                                    name="confirmPassword" placeholder="Confirm password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="conTogglePassword">
+                                    <i class="far fa-eye-slash" id="conToggleIcon"></i>
+                                    <span id="passwordError" class="error"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4 ps-5">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control form-control-lg" id="firstName" name="firstName"
+                                placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group mb-4 ps-5">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control form-control-lg" id="lastName" name="lastName"
+                                placeholder="Enter last name" required>
+                        </div>
+                        <div class="ps-5">
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mb-4 py-3">Register</button>
+                        </div>
+                        <div class="ps-5 text-center">
+                            <p class="text-muted small">
+                                By clicking Register, you accept Koozlet's
+                                <a href="/terms" class="text-decoration-none">Terms of Service</a> and
+                                <a href="/privacy" class="text-decoration-none">Privacy Policy</a>
+                            </p>
+                        </div>
+                        <div class="text-center ps-5">
+                            <a href="/login" class="btn btn-outline-secondary btn-lg w-100 mb-4"> Already have an
+                                account?
+                                Click here</a>
+                        </div>
                 </div>
             </div>
         </div>
@@ -111,47 +120,14 @@
     const toggleConIcon = document.getElementById('conToggleIcon');
     const conPasswordField = document.getElementById('confirmPassword');
 
-    togglePasswordConButton.addEventListener('click', function(){
-        if(conPasswordField.type === 'password'){
+    togglePasswordConButton.addEventListener('click', function () {
+        if (conPasswordField.type === 'password') {
             conPasswordField.type = 'text';
-            toggleConIcon.className = 'far fa-eye';    
+            toggleConIcon.className = 'far fa-eye';
         }
-        else{
+        else {
             conPasswordField.type = 'password';
             toggleConIcon.className = 'far fa-eye-slash';
         }
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
