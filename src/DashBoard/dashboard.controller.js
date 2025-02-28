@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const router = ExpressHandlebars.router();
+const router = express.router();
 
 const DashboardController = (dashboardService) =>{
     router.get('/dashboard', (req,res) =>{
