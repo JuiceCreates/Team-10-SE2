@@ -1,4 +1,6 @@
 
-class DashboardService{}
+class DashboardService{
+    constructor(){}
+}
 
-export default DashboardService;
+module.exports = DashboardService;

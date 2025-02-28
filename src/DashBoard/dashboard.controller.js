@@ -1,6 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
-const router = express.router();
+const router = express.Router();
 
 const DashboardController = (dashboardService) =>{
     router.get('/dashboard', (req,res) =>{
