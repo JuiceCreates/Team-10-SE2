@@ -1,0 +1,33 @@
+<div class="dashContainer d-flex flex-column justify-content-start align-items-center bg-login" style="min-height: 100vh; padding-top: 20px;">
+    <header class="text-center">
+        <h1 class="dashHeader">KOOZLET</h1>
+        <div class="ps-0">
+            <p class="dashText">Welcome to the Koozboard!</p>
+        </div>
+    </header>
+    <div class="col-7 p-0" style="background-color: white;">
+        <div class="d-flex justify-content-start gap-4 ps-5">
+            <a href="/dashboard" class="text-decoration-none"><button class="tab-button active">Kuizes</button></a>
+            <a href="/studyGuides" class="text-decoration-none"><button class="tab-button">Study Guides</button></a>
+            <a href= '/login' class = "btn btn-outline-secondary mb-4 ms-auto"> Log out</a>
+       
+        </div>
+        <form method="POST" action="/dashboard" style="margin-top: 3rem;">
+            <div class="dashcard shadow-sm h-100 rounded-0 text-center">
+                <h1>Kuizes</h1>
+                <div class="dashIput-group mb-3">
+                    <div class="form-outline" data-mdb-input-init style="flex-grow: 1;">
+                        <input type="search" id="quizSearch" class="form-control" />
+                    </div>
+                    <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <p class="text-muted small">This is where quizes would go</p>
+                <button type ="button" class = "btn btn-secondary">Add Kuize</button>
+
+            </div>
+            
+
+        </form>
+    </div>
