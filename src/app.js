@@ -32,17 +32,20 @@ const UserDAO = require('./User/user.dao');
 
 const LoginService = require('./Login/login.service');
 const UserService = require('./User/user.service');
+const DashboardService = require('./DashBoard/dashboard.servive');
+
 
 const userDAO = new UserDAO(prisma);
 const loginService = new LoginService(userDAO);
 const userService = new UserService(userDAO, bcrypt);
 
+
 const loginController = require('./Login/login.controller');
 const UserController = require('./User/user.controller');
 
+
 app.use(UserController(userService));
 app.use(loginController(loginService));
-
 app.get('/' , (req, res) =>{
     res.redirect('/login');
 });
