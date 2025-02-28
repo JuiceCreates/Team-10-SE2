@@ -48,6 +48,15 @@
     padding: 0rem 1rem;
 }
 
+
+.dashContainter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 20px;
+}
 .dashHeader{
     font-size: 5rem;
     font-weight: bold;
@@ -60,7 +69,22 @@
 
 .dashCard {
     width: 100%; 
-    margin-top: 20px; 
+    margin-top: 20px;
+    padding: 15rem;
+    max-width: 600px; 
+}
+
+.dashIput-group{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+}
+.dashIput-group .form-outline{
+    flex-grow: 1;
+}
+.dashIput-group .btn{
+    margin-left: 8px;
 }
 
 /*Kuizlet Logo name*/
