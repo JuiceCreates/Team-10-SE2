@@ -6,7 +6,8 @@ describe('UserService', () => {
   
   beforeEach(() => {
     mockUserDAO = {
-      createUser: jest.fn()
+      createUser: jest.fn(),
+      findUserByEmail: jest.fn() // Mocking findUserByEmail
     };
     
     userService = new UserService(mockUserDAO);
@@ -27,7 +28,7 @@ describe('UserService', () => {
         firstName: 'John',
         lastName: 'Doe'
       };
-      
+
       const createdUser = {
         id: 1,
         ...userData,
@@ -42,6 +43,23 @@ describe('UserService', () => {
       expect(mockUserDAO.createUser).toHaveBeenCalledWith(userData);
       expect(console.log).toHaveBeenCalledWith('Creating user with data:', userData);
     });
+
+    it('should throw an error if email already exists', async () => {
+      const userData = {
+          email: 'test@example.com',
+          password: 'password123',
+          firstName: 'John',
+          lastName: 'Doe'
+      };
+  
+      mockUserDAO.findUserByEmail.mockResolvedValue({ id: 1, ...userData }); // Simulate existing user
+  
+      await expect(userService.registerUser(userData)).rejects.toThrow('Email already exists');
+  
+      expect(mockUserDAO.findUserByEmail).toHaveBeenCalledWith(userData.email);
+      expect(mockUserDAO.createUser).not.toHaveBeenCalled();
+  });
+  
 
     it('should throw an error if user creation fails', async () => {
       const userData = {
