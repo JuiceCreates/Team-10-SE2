@@ -12,15 +12,10 @@ router.get('/register', (req,res) =>{
 });
 
 
-module.exports = router;
 
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-
-    if (!email || !password) {
-        return res.status(400).json({ error: 'Email and password are required' });
-    }
 
     try {
         const user = await loginService.authenticateUser(email, password);
@@ -42,6 +37,8 @@ router.post('/logout', (req, res) => {
         res.redirect('/login');
     });
 });
+
+
 return router;
 };
 module.exports = LoginController;

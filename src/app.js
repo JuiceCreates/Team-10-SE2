@@ -29,25 +29,28 @@ const prisma = new PrismaClient();
 
 const UserDAO = require('./User/user.dao');
 
-
 const LoginService = require('./Login/login.service');
 const UserService = require('./User/user.service');
 const DashboardService = require('./DashBoard/dashboard.service');
-
-
+const StudyguideService = require('./Studyguide/studyguide.service');
 
 const userDAO = new UserDAO(prisma);
 const loginService = new LoginService(userDAO, bcrypt);
 const userService = new UserService(userDAO, bcrypt);
 const dashboardService = new DashboardService();
+const studyguideService = new StudyguideService();
+
 
 const loginController = require('./Login/login.controller');
 const UserController = require('./User/user.controller');
 const DashboardController = require('./DashBoard/dashboard.controller');
+const StudyGuideController = require('./Studyguide/studyguide.controller');
 
-app.use(DashboardController(dashboardService));
 app.use(UserController(userService));
 app.use(loginController(loginService));
+app.use(DashboardController(dashboardService));
+app.use(StudyGuideController(studyguideService));
+
 app.get('/' , (req, res) =>{
     res.redirect('/login');
 });
