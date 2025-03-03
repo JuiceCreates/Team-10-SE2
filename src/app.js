@@ -37,7 +37,7 @@ const DashboardService = require('./DashBoard/dashboard.service');
 
 
 const userDAO = new UserDAO(prisma);
-const loginService = new LoginService(userDAO);
+const loginService = new LoginService(userDAO, bcrypt);
 const userService = new UserService(userDAO, bcrypt);
 const dashboardService = new DashboardService();
 
