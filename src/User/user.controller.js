@@ -4,20 +4,6 @@ const router = express.Router();
 const UserController = (UserService) => {
     router.post('/register', async (req, res) => {
         const { email, password, firstName, lastName } = req.body;
-        
-        const missingFields = [];
-        if (!email) missingFields.push('email');
-        if (!password) missingFields.push('password');
-        if (!firstName) missingFields.push('firstName');
-        if (!lastName) missingFields.push('lastName');
-        
-        if (missingFields.length > 0) {
-            return res.status(400).json({ 
-                error: 'Missing required fields', 
-                missingFields: missingFields,
-                message: `You are missing: ${missingFields.join(', ')}`
-            });
-        }
         try {
             const userData = { 
                 email, 
