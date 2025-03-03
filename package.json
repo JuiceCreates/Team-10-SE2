@@ -16,7 +16,7 @@
   "author": "Alexander Nunn, Corey Williams, Zachary Wilson, Micheal Ramirez",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.22.0",
+    "@prisma/client": "^6.1.0",
     "axios": "^1.7.8",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
@@ -34,7 +34,7 @@
     "eslint": "^9.11.1",
     "jest": "^29.7.0",
     "nodemon": "^3.1.5",
-    "prisma": "^5.22.0",
+    "prisma": "^6.1.0",
     "supertest": "^7.0.0"
   }
 }

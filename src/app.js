@@ -1,7 +1,6 @@
 
 const express = require('express');
 const session = require('express-session');
-const bcrypt = require("bcrypt");
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -24,36 +23,24 @@ app.use(express.static(path.join(__dirname, '../public')));
 const HandlebarsMiddleware = require('./middleware/handlebars.middleware'); 
 HandlebarsMiddleware.setup(app);
 
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
 
-const UserDAO = require('./User/user.dao');
+const LoginController = require('./Controllers/login.controller');
+const UserController = require('./Controllers/user.controller');
+const DashboardController = require('./Controllers/dashboard.controller');
 
-const LoginService = require('./Login/login.service');
-const UserService = require('./User/user.service');
-const DashboardService = require('./DashBoard/dashboard.service');
-const StudyguideService = require('./Studyguide/studyguide.service');
+const LoginService = require('./Services/login.service');
+const UserService = require('./Services/user.service');
+const DashboardService = require('./Services/dashboard.service');
 
-const userDAO = new UserDAO(prisma);
-const loginService = new LoginService(userDAO, bcrypt);
-const userService = new UserService(userDAO, bcrypt);
-const dashboardService = new DashboardService();
-const studyguideService = new StudyguideService();
+app.use('/', LoginController(new LoginService()));
+app.use(UserController(new UserService()));
+app.use(DashboardController(new DashboardService()));
 
-
-const loginController = require('./Login/login.controller');
-const UserController = require('./User/user.controller');
-const DashboardController = require('./DashBoard/dashboard.controller');
-const StudyGuideController = require('./Studyguide/studyguide.controller');
-
-app.use(UserController(userService));
-app.use(loginController(loginService));
-app.use(DashboardController(dashboardService));
-app.use(StudyGuideController(studyguideService));
 
 app.get('/' , (req, res) =>{
     res.redirect('/login');
 });
+
 
 // Error handler
 app.use((err, req, res, next) => {
