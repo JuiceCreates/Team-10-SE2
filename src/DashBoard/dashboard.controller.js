@@ -8,13 +8,6 @@ const DashboardController = (dashboardService) => {
         }
         res.render('dashboard');
     });
-    router.get('/studyGuides', (req, res) => {
-        if (!req.session.user) {
-            return res.redirect('/login');
-        }
-        res.render('studyGuides');
-    });
-
     module.exports = router;
 
     return router;
