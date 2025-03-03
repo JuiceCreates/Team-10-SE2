@@ -3,19 +3,18 @@ const router = express.Router();
 
 const DashboardController = (dashboardService) => {
     router.get('/dashboard', (req, res) => {
-        if (!req.session.user) {
+        if (!req.session || !req.session.user) {
             return res.redirect('/login');
         }
         res.render('dashboard');
     });
+
     router.get('/studyGuides', (req, res) => {
-        if (!req.session.user) {
+        if (!req.session || !req.session.user) {
             return res.redirect('/login');
         }
         res.render('studyGuides');
     });
-
-    module.exports = router;
 
     return router;
 };
