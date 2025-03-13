@@ -2,9 +2,9 @@
 
 on:
   push:
-    branches: [main, dev]  # Runs on push to main & dev branches
+    branches: ["*"]  # Runs on all branches
   pull_request:
-    branches: [main, dev]  # Runs on PRs to main & dev
+    branches: ["*"]  # Runs on all PRs
 
 jobs:
   test:
