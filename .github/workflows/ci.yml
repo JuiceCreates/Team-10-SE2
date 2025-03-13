@@ -1,0 +1,27 @@
+﻿name: Run Tests on Push and PR
+
+on:
+  push:
+    branches: [main, dev]  # Runs on push to main & dev branches
+  pull_request:
+    branches: [main, dev]  # Runs on PRs to main & dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Pulls your code
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Use Node.js 18 (adjust as needed)
+          cache: 'npm'  # Cache dependencies
+
+      - name: Install Dependencies
+        run: npm install  # Installs project dependencies
+
+      - name: Run Tests
+        run: npm test  # Runs your tests
