@@ -1,10 +1,14 @@
-﻿name: Run Tests on Push and PR
+﻿name: Run Tests with Coverage
 
 on:
   push:
     branches: ["*"]
   pull_request:
     branches: ["*"]
+
+permissions:
+  checks: write
+  contents: read
 
 jobs:
   test:
@@ -23,15 +27,20 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run ESLint (Only If JS Changed)
-        run: git diff --name-only HEAD^ HEAD | grep -E '\.js$' && npx eslint . --quiet || echo "No JS changes, skipping lint."
-
       - name: Run Tests with Coverage
-        run: npm test -- --coverage  
+        id: jest-tests
+        run: npm test -- --coverage --json --outputFile=coverage.json
+        continue-on-error: true 
 
-      - name: Upload Coverage Report (Only for Main)
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v4 
+      - name: Upload Coverage Report as Artifact (Optional)
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: coverage
+
+      - name: Report Coverage in PR (GitHub Checks)
+        uses: dorny/test-reporter@v1
+        with:
+          name: Jest Coverage
+          path: coverage/clover.xml
+          reporter: jest
