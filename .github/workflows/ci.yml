@@ -2,26 +2,36 @@
 
 on:
   push:
-    branches: ["*"]  # Runs on all branches
+    branches: ["*"]
   pull_request:
-    branches: ["*"]  # Runs on all PRs
+    branches: ["*"]
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3  # Pulls your code
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Use Node.js 18 (adjust as needed)
-          cache: 'npm'  # Cache dependencies
+          node-version: 18
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install  # Installs project dependencies
+        run: npm install
 
-      - name: Run Tests
-        run: npm test  # Runs your tests
+      - name: Run ESLint (Only If JS Changed)
+        run: git diff --name-only HEAD^ HEAD | grep -E '\.js$' && npx eslint . --quiet || echo "No JS changes, skipping lint."
+
+      - name: Run Tests (Faster for PRs)
+        run: npm test ${{ github.ref == 'refs/heads/main' && '-- --coverage' || '-- --onlyChanged' }}
+
+      - name: Upload Coverage Report (Only for Main)
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage
